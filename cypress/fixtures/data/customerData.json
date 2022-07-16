@@ -1,0 +1,17 @@
+{
+    "firstName":"Test",
+    "lastName":"Customer",
+    "companyName":"Customer Company",
+    "email":"test@customer.com",
+    "phone":"1234567890",
+    "comment":"Test comment section",
+
+
+    "addressLine1":"TestCustStreet",
+    "addressLine2":"TestCustRoad",
+    "city":"TestCity",
+    "state":"TestState",
+    "zip":"46000",
+    "country":"TestCountry"
+
+}
