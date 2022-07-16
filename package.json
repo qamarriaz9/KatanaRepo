@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "Cypress e2e automation",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  
+  "resolutions": {
+    "node-sass": "https://registry.npmjs.org/node-sass/-/node-sass-7.0.0.tgz"
   },
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions"
+  },
+
   "author": "Qamar Riaz",
   "license": "ISC",
   "devDependencies": {
