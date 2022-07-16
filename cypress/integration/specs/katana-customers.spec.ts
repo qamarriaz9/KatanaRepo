@@ -11,6 +11,7 @@ describe('Customer Functionality Testing', () => {
 
     it('Login To Katana app and navigate to customers page',() => {
 
+        cy.log("Login Test Case");
         cy.visit(Cypress.env('webURL'));        
         login.inputEmail().type(Cypress.env('userName'));
         login.inputPassword().type(Cypress.env('userPassowrd')); 
@@ -19,6 +20,8 @@ describe('Customer Functionality Testing', () => {
     });
 
     it('Verify create new user functionality',() => {
+
+        cy.log("Create Customer Test Case");
 
         cy.fixture('/data/customerData.json').then((custData) => {            
 
