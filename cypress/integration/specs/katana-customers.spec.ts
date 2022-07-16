@@ -86,12 +86,7 @@ describe('Customer Functionality Testing', () => {
 
     });
 
-    it('Delete newly created user functionality',() => {
-
-        // Cypress.on('uncaught:exception', (err, runnable) => {
-
-        //     return false;
-        // })
+    it('Delete newly created user functionality',() => {       
 
         contact.inputEmailToFilterCustomer().clear();
         contact.inputEmailToFilterCustomer().type("customer@emailupdated.com{enter}");
