@@ -33,17 +33,12 @@ describe('Customer Functionality Testing', () => {
                 customer.inputFirstName().type(custData.firstName);
                 customer.inputLastName().type(custData.lastName);
                 customer.inputCompanyName().type(custData.companyName);
-                customer.inputEmail().type(custData.email, {force: true, delay:100});
-                customer.inputPhone().type(custData.phone);
-                customer.inputComment().type(custData.comment, {delay:100});                
+                customer.inputEmail().type(custData.email, {force: true, delay:50});
+                customer.inputPhone().type(custData.phone, {force: true, delay:50});
+                customer.inputComment().type(custData.comment);                
                 customer.inputDefaultBillingAddress().click();
 
                 customer.BillingAddressHeader().should('have.text', 'Billing Address');
-
-                // customer.inputFirstName().last().type(custData.firstName);
-                // customer.inputLastName().last().type(custData.lastName );
-                // customer.inputCompanyName().last().type(custData.companyName);       
-                // customer.inputPhone().last().type(custData.phone);
 
                 customer.inputAddressLineOne().type(custData.addressLine1, {force: true});
                 customer.inputAddressLineTwo().type(custData.addressLine2, {force: true});
@@ -69,8 +64,8 @@ describe('Customer Functionality Testing', () => {
 
     it('Update newly created user functionality',() => {
 
-        contact.inputEmailToFilterCustomer().clear();
-        contact.inputEmailToFilterCustomer().type("test@customer.com");
+        // contact.inputEmailToFilterCustomer().clear();
+        // contact.inputEmailToFilterCustomer().type("test@customer.com");
 
         contact.customerRetrievedName().first().click();
         customer.inputEmail().clear();
@@ -86,17 +81,18 @@ describe('Customer Functionality Testing', () => {
 
     });
 
-    it('Delete newly created user functionality',() => {       
-
-        contact.inputEmailToFilterCustomer().clear();
-        contact.inputEmailToFilterCustomer().type("customer@emailupdated.com{enter}");
-        contact.customerRetrievedName().click();
+    it('Delete newly created user functionality',() => {
+       
+        contact.customerRetrievedNameXPath().click({ force: true, multiple: true });
         customer.customerDialogThreeDotBtn().click();
         customer.customerDialogDeletetBtn().click();        
-        customer.customerConfirmDeleteBtn().click({ force: true });
-        contact.inputEmailToFilterCustomer().clear();   
-        contact.inputEmailToFilterCustomer().type("customer@emailupdated.com", {force: true});        
-        contact.retrievedUserGrid().should('not.have.text');
+        customer.customerConfirmDeleteBtn().click({ force: true });        
+        
+        contact.contactsMenuTab().click();
+        contact.inputEmailToFilterCustomer().type("customer@emailupdated.com{enter}");
+        contact.retrievedUserGrid().should('not.have.text');    
+
+        
 
     });
 
